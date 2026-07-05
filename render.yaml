@@ -14,17 +14,3 @@ services:
       - key: JWT_SECRET
         sync: false   # Set manually in Render dashboard
 
-  # ── Frontend (React / Vite Static Site) ────────────────────────
-  - type: web
-    name: sample-task-frontend
-    runtime: static
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_URL
-        value: https://sample-task-backend.onrender.com/api

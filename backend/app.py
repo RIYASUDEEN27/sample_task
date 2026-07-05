@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # CORS — allow all origins (JWT auth uses Authorization header, not cookies)
 CORS(app,
-     resources={r"/api/*": {"origins": "*"}},
+     resources={r"/*": {"origins": "*"}},
      allow_headers=["Content-Type", "Authorization"],
      methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"])
 
