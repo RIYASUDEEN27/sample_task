@@ -11,8 +11,18 @@ from routes.user import user_bp
 
 app = Flask(__name__)
 
-# CORS — allow frontend origins
-CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
+# CORS — explicitly list allowed origins (required when supports_credentials=True)
+ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://sample-task-frontend.onrender.com",
+]
+
+CORS(app,
+     resources={r"/api/*": {"origins": ALLOWED_ORIGINS}},
+     supports_credentials=True,
+     allow_headers=["Content-Type", "Authorization"],
+     methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"])
 
 # Register blueprints
 app.register_blueprint(auth_bp, url_prefix="/api")
