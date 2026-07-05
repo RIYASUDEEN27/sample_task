@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.log
+*.pot
+*.pyc
+
+# Virtual environment
+backend/venv/
+venv/
+env/
+.venv/
+
+# Flask / Python
+instance/
+.webassets-cache
+celerybeat-schedule
+celerybeat.pid
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# Node / Frontend
+frontend/node_modules/
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Vite
+*.local
+
+# Editor & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Git
+*.orig

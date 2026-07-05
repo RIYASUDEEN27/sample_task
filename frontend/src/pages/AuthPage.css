@@ -1,0 +1,193 @@
+/* Auth Page Layout */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--navbar-height) + var(--space-8)) var(--space-4) var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.auth-bg-orb--1 {
+  width: 500px; height: 500px;
+  background: rgba(108,99,255,0.12);
+  top: -100px; left: -150px;
+  animation: float 8s ease-in-out infinite;
+}
+.auth-bg-orb--2 {
+  width: 400px; height: 400px;
+  background: rgba(0,212,170,0.08);
+  bottom: -100px; right: -100px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 1;
+}
+.auth-container--wide {
+  max-width: 560px;
+}
+
+/* Card */
+.auth-card {
+  padding: var(--space-8);
+}
+
+.auth-card__header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-logo {
+  width: 56px;
+  height: 56px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 0 auto var(--space-5);
+  box-shadow: 0 6px 20px rgba(108,99,255,0.4);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.auth-card__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+}
+
+.auth-card__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.auth-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--space-4);
+}
+
+.auth-form__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  margin-top: var(--space-1);
+}
+
+/* Checkbox */
+.auth-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+.auth-checkbox input { display: none; }
+.auth-checkbox__box {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+.auth-checkbox input:checked + .auth-checkbox__box {
+  background: var(--color-violet);
+  border-color: var(--color-violet);
+}
+.auth-checkbox input:checked + .auth-checkbox__box::after {
+  content: '✓';
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.auth-checkbox__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Links */
+.auth-link {
+  color: var(--color-violet-light);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.auth-link:hover { color: var(--color-violet); text-decoration: underline; }
+.auth-link--subtle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  padding: 0;
+}
+.auth-link--subtle:hover { color: var(--color-violet-light); }
+
+/* Footer */
+.auth-card__footer {
+  margin-top: var(--space-6);
+  text-align: center;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+.auth-card__switch {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Password rules */
+.password-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+.password-rule {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  background: rgba(255,255,255,0.04);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+.password-rule--pass {
+  color: var(--color-teal);
+  background: rgba(0,212,170,0.1);
+}
+
+@media (max-width: 600px) {
+  .auth-card { padding: var(--space-6); }
+  .auth-form__grid { grid-template-columns: 1fr; }
+}
