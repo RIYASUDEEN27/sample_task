@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider } from './context/AuthContext'
 import { ProtectedRoute, GuestRoute } from './components/ProtectedRoute'
@@ -13,7 +13,7 @@ import NotFoundPage from './pages/NotFoundPage'
 export default function App() {
   return (
     <AuthProvider>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<HomePage />} />
@@ -82,7 +82,7 @@ export default function App() {
             },
           }}
         />
-      </HashRouter>
+      </BrowserRouter>
     </AuthProvider>
   )
 }
