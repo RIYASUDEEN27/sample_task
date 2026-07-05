@@ -11,16 +11,9 @@ from routes.user import user_bp
 
 app = Flask(__name__)
 
-# CORS — explicitly list allowed origins (required when supports_credentials=True)
-ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "https://sample-task-frontend.onrender.com",
-]
-
+# CORS — allow all origins (JWT auth uses Authorization header, not cookies)
 CORS(app,
-     resources={r"/api/*": {"origins": ALLOWED_ORIGINS}},
-     supports_credentials=True,
+     resources={r"/api/*": {"origins": "*"}},
      allow_headers=["Content-Type", "Authorization"],
      methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"])
 
